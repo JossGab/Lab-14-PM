@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.lab14"
-    compileSdk = 34
+    compileSdk = 35 // Actualizado a 35
 
     defaultConfig {
         applicationId = "com.example.lab14"
-        minSdk = 26
-        targetSdk = 34
+        minSdk = 26 // Verifica si tu aplicación requiere una versión más alta
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -50,7 +50,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -68,13 +67,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Para soporte de AppWidgets
-    implementation (libs.androidx.glance.appwidget)
+    implementation(libs.androidx.glance.appwidget)
 
     // Para interoperabilidad con Material 3
-    implementation (libs.androidx.glance.material3)
+    implementation(libs.androidx.glance.material3)
 
     // Para interoperabilidad con Material 2
-    implementation (libs.androidx.glance.material)
-
-
+    implementation(libs.androidx.glance.material)
 }

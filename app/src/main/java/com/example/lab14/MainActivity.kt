@@ -3,7 +3,7 @@ package com.example.lab14
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
+import androidx.core.view.WindowCompat
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -16,14 +16,15 @@ import com.example.lab14.ui.theme.Lab14Theme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        // Habilitar diseño Edge-to-Edge
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
             Lab14Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    // Utilizando innerPadding para aplicar el relleno al contenido
+                    SimpleWidget(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -31,9 +32,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun SimpleWidget(modifier: Modifier = Modifier) {
+    // Ejemplo de un widget simple
     Text(
-        text = "Hello $name!",
+        text = "Hello from SimpleWidget!",
         modifier = modifier
     )
 }
@@ -42,6 +44,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     Lab14Theme {
-        Greeting("Android")
+        SimpleWidget()
     }
 }
